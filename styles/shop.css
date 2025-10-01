@@ -90,7 +90,7 @@ a {
       rgba(126, 126, 126, 0.85),
       rgba(196, 196, 196, 0.85)
     ),
-    url("/assets/tiger.jpeg") no-repeat center center/cover;
+    url("assets/tiger.jpeg") no-repeat center center/cover;
   padding: 60px 0;
 }
 
