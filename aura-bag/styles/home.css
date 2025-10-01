@@ -1,0 +1,404 @@
+/* Variables */
+:root {
+  --primary-color: #5d3fd3; /* Purple tone for buttons/accents */
+  --secondary-color: #3f73d3; /* Blue tone for text/accents */
+  --text-dark: #222;
+  --text-light: #555;
+  --background-light: #f9f9f9;
+  --card-background: #ffffff;
+  --hover-purple: #4a33a5;
+  --white-transparent-gradient: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.02)
+  );
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: var(--text-light);
+  background-color: var(--background-light);
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-light);
+}
+
+/* Helper Class for Buttons */
+.shop-now-btn,
+.shop-now-lg,
+.add-to-cart-btn {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+/* Header & Navigation */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  position: absolute; /* Position over the hero image */
+  width: 100%;
+  z-index: 100;
+  color: #b6b6b6; /* Text color for better contrast on hero background */
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white; /* Logo color */
+  letter-spacing: 1px;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.main-nav ul li {
+  margin: 0 15px;
+}
+
+.main-nav ul li a {
+  color: white;
+  font-size: 1rem;
+  padding: 5px;
+  transition: color 0.3s;
+}
+
+.main-nav ul li a:hover {
+  color: var(--secondary-color);
+}
+
+.shop-now-btn {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+.shop-now-btn:hover {
+  background-color: var(--hover-purple);
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  /* BACKGROUND IMAGE from Image 1 */
+  background: linear-gradient(
+      135deg,
+      rgba(93, 63, 211, 0.6),
+      rgba(63, 115, 211, 0.6)
+    ),
+    url("/aura-bag/assets/blue_smoke.jpegecho ");
+  color: white;
+  overflow: hidden;
+}
+
+/* Overlay for the glowing/bokeh effect - this is a simplified visual representation */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at top left,
+      rgba(255, 255, 255, 0.2) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 60%
+    );
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.hero-content {
+  z-index: 2;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  /* Mimic the gradient/color shift in the text */
+  background: linear-gradient(90deg, #3f73d3, #5d3fd3, #b24592);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #fff; /* Fallback for browsers not supporting text-fill-color */
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.shop-now-lg {
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1rem;
+  padding: 15px 40px;
+  border-radius: 8px;
+}
+
+.shop-now-lg:hover {
+  background-color: var(--hover-purple);
+}
+
+.scroll-down-arrow {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(-10px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(-5px) translateX(-50%);
+  }
+}
+
+/* Featured Collection Section */
+.featured-collection {
+  padding: 80px 5%;
+  text-align: center;
+}
+
+.featured-collection h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+}
+
+.featured-collection > p {
+  font-size: 1.1rem;
+  margin-bottom: 50px;
+  color: var(--text-light);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background-color: var(--card-background);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  transition: transform 0.3s;
+  overflow: hidden; /* Ensure image doesn't overflow rounded corners */
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image-container {
+  width: 100%;
+  height: 250px; /* Fixed height for consistent card appearance */
+  margin-bottom: 15px;
+  overflow: hidden; /* Ensures image respects container bounds */
+  border-radius: 8px; /* Match card border-radius for image area */
+}
+
+.product-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crop and center image within its container */
+  border-radius: 8px; /* Apply border-radius directly to the image */
+}
+
+.product-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+}
+
+.product-card .price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.add-to-cart-btn:hover {
+  background-color: var(--hover-purple);
+}
+
+/* Footer */
+.site-footer {
+  background-color: var(--card-background);
+  padding: 50px 5% 20px;
+  border-top: 1px solid #eee;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  flex-wrap: wrap;
+}
+
+.footer-brand,
+.footer-links,
+.footer-support {
+  width: 30%;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+.footer-brand h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.footer-links h4,
+.footer-support h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+.footer-links ul,
+.footer-support ul {
+  list-style: none;
+}
+
+.footer-links ul li,
+.footer-support ul li {
+  margin-bottom: 8px;
+}
+
+.footer-links ul li a,
+.footer-support ul li a {
+  color: var(--text-light);
+  transition: color 0.3s;
+}
+
+.footer-links ul li a:hover,
+.footer-support ul li a:hover {
+  color: var(--primary-color);
+}
+
+.social-links a {
+  display: inline-block;
+  color: white;
+  background-color: var(--primary-color);
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-top: 15px;
+  transition: background-color 0.3s;
+}
+
+.social-links a:hover {
+  background-color: var(--hover-purple);
+}
+
+.copyright {
+  text-align: center;
+  font-size: 0.85rem;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  color: var(--text-light);
+}
+
+/* Responsiveness (Basic) */
+@media (max-width: 768px) {
+  .main-nav {
+    display: none; /* Hide navigation on small screens for simplicity */
+  }
+
+  .main-header {
+    padding: 15px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+
+  .footer-brand,
+  .footer-links,
+  .footer-support {
+    width: 100%;
+    text-align: center;
+  }
+
+  .social-links {
+    text-align: center;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
