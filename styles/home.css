@@ -114,7 +114,7 @@ a {
       rgba(93, 63, 211, 0.6),
       rgba(63, 115, 211, 0.6)
     ),
-    url("/aura-bag/assets/blue_smoke.jpegecho ");
+    url("/assets/blue_smoke.jpeg");
   color: white;
   overflow: hidden;
 }
